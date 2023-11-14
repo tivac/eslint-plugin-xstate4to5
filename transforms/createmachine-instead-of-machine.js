@@ -3,17 +3,21 @@ module.exports = {
     meta : {
         fixable : true,
         schema : [],
+
+        messages : {
+            wrong : "Use createMachine instead of Machine"
+        },
     },
 
     create(context) {
         let xstateImport = false;
 
         return {
-            [`ImportDeclaration[source="xstate"]`](node) {
+            [`ImportDeclaration[source.value="xstate"]`](node) {
                 xstateImport = true;
             },
             
-            [`ImportDeclaration[source="xstate"]:exit`](node) {
+            [`ImportDeclaration[source.value="xstate"]:exit`](node) {
                 xstateImport = false;
             },
 
@@ -24,8 +28,8 @@ module.exports = {
 
                 context.report({
                     node,
-                    message : "Use createMachine instead of Machine",
-                    fix : (fixer) => fixer.replaceText(node.imported.name, "createMachine"),
+                    messageId : "wrong",
+                    fix : (fixer) => fixer.replaceText(node.imported, "createMachine"),
                 });
             },
 
@@ -33,7 +37,7 @@ module.exports = {
             [`CallExpression[callee.name="Machine"]`](node) {
                 context.report({
                     node,
-                    message : "Use createMachine instead of Machine",
+                    messageId : "wrong",
                     fix : (fixer) => fixer.replaceText(node.callee, "createMachine"),
                 });
             },

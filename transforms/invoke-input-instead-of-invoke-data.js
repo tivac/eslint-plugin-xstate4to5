@@ -3,6 +3,10 @@ module.exports = {
     meta : {
         fixable : true,
         schema : [],
+
+        messages : {
+            wrong : "Use input instead of data for invokes",
+        },
     },
 
     create(context) {
@@ -10,7 +14,7 @@ module.exports = {
             [`Property[key.name="invoke"] Property[key.name="data"]`](node) {
                 context.report({
                     node,
-                    message : "Use input instead of data for invokes",
+                    messageId : "wrong",
                     fix : (fixer) => fixer.replaceText(node.key, "input"),
                 })
             },
