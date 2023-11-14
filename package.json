@@ -1,7 +1,7 @@
 {
   "name": "xstate-v5-codemods",
   "version": "1.0.0",
-  "description": "Codemods to transition xstate v4 machines to v5",
+  "description": "ESLint rules to transition xstate v4 machines to v5",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "@tivac/eslint-config": "^2.4.0",
-    "eslint": "^8.53.0",
-    "jscodeshift": "^0.15.1"
+    "eslint": "^8.53.0"
   },
   "peerDependencies": {
-    "jscodeshift": "^0.15"
+    "eslint": "^8"
   }
 }
