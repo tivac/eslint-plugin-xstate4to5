@@ -6,7 +6,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 
 | Status | Rule Name | Description |
 | :----: | --------- | ----------- |
-| ❔ | [createmachine-instead-of-machine](https://stately.ai/docs/migration#use-createmachine-not-machine) | Use `createMachine({ ... })` instead of `Machine({ ... })` |
+| ✅ | [createmachine-instead-of-machine](https://stately.ai/docs/migration#use-createmachine-not-machine) | Use `createMachine({ ... })` instead of `Machine({ ... })` |
 | ❔ | [createactor-instead-of-interpret](https://stately.ai/docs/migration#use-createactor-not-interpret) | Use `createActor(...)` instead of `interpret(...)` |
 | ❔ | [provide-instead-of-withconfig](https://stately.ai/docs/migration#use-machineprovide-not-machinewithconfig) | Use `machine.provide(...)` instead of `machine.withConfig(...)` |
 | ❔ | [input-instead-of-withcontext](https://stately.ai/docs/migration#set-context-with-input-not-machinewithcontext) | Use `{ input : { ... } }` instead of `machine.withContext({ ... })` |
@@ -21,7 +21,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | ❔ | [eventless-use-always](https://stately.ai/docs/migration#use-explicit-eventless-always-transitions) | Eventless transitions use `always`, not `""` |
 | ❔ | [reenter-instead-of-internal](https://stately.ai/docs/migration#use-reenter-true-not-internal-false) | Use `renter: true` instead of `internal: false` |
 | ❔ | [statein-instead-of-in](https://stately.ai/docs/migration#use-statein-to-validate-state-transitions-not-in) | Use `guard: stateIn({ ... })` instead of `in` |
-| ❔ | [invoke-input](https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata) | Use `invoke : { ..., input : { ... } }` instead of `data` |
+| ✅ | [invoke-input](https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata) | Use `invoke : { ..., input : { ... } }` instead of `data` |
 | ❔ | [output-in-final-states](https://stately.ai/docs/migration#use-output-in-final-states-instead-of-data) | Use `{ type : "final", output : { ... } }` instead of `data` |
 | ❔ | [function-instead-of-property-wrapper](https://stately.ai/docs/migration#dont-use-property-mappers-in-input-or-output) | Use a function for `input`/`output` instead of individually mapping fields |
 | ❔ | [actors-property-replaces-services](https://stately.ai/docs/migration#use-actors-property-on-options-object-instead-of-services) | Use the `actors` property with `machine.provide()` instead of `services` |
