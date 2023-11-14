@@ -1,28 +1,42 @@
 // https://stately.ai/docs/migration#use-createmachine-not-machine
-module.exports = (file, api, options) => {
-    const j = api.jscodeshift;
+module.exports = {
+    meta : {
+        fixable : true,
+        schema : [],
+    },
 
-    // Update imports
-    file.source = j(file.source)
-    .find(j.ImportDeclaration, (node) => node.source.value === "xstate")
-    .find(j.ImportSpecifier, (node) => node.imported.name === "Machine")
-    .find(j.Identifier)
-    .forEach(path => {
-        j(path).replaceWith(
-            j.identifier("createMachine")
-        );
-    })
-    .toSource();
+    create(context) {
+        let xstateImport = false;
 
-    // Update calls
-file.source = j(file.source)
-  .find(j.CallExpression)
-  .find(j.Identifier, (node) => console.log(node) || node.name === "Machine")
-  .forEach((path) => {
-    j(path).replaceWith(j.identifier("createMachine"))
-  })
-  .toSource();
+        return {
+            [`ImportDeclaration[source="xstate"]`](node) {
+                xstateImport = true;
+            },
+            
+            [`ImportDeclaration[source="xstate"]:exit`](node) {
+                xstateImport = false;
+            },
 
-return file.source;
+            [`ImportSpecifier[imported.name="Machine"]`](node) {
+                if(!xstateImport) {
+                    return;
+                }
 
+                context.report({
+                    node,
+                    message : "Use createMachine instead of Machine",
+                    fix : (fixer) => fixer.replaceText(node.imported.name, "createMachine"),
+                });
+            },
+
+            // TODO: can this be safer?
+            [`CallExpression[callee.name="Machine"]`](node) {
+                context.report({
+                    node,
+                    message : "Use createMachine instead of Machine",
+                    fix : (fixer) => fixer.replaceText(node.callee, "createMachine"),
+                });
+            },
+        };
+    },
 };

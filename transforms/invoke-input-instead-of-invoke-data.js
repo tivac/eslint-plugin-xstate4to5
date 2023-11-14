@@ -1,14 +1,19 @@
 // https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata
-module.exports = (file, api, options) => {
-    const j = api.jscodeshift;
+module.exports = {
+    meta : {
+        fixable : true,
+        schema : [],
+    },
 
-    return j(file.source)
-        .find(j.Property, (node) => node.key.name === "invoke")
-        .find(j.Property, (node) => node.key.name === "data")
-        .forEach(path => {
-            j(path).replaceWith(
-                j.property(path.node.kind, j.identifier("init"), path.node.value)
-            );
-        })
-        .toSource();
+    create(context) {
+        return {
+            [`Property[key.name="invoke"] Property[key.name="data"]`](node) {
+                context.report({
+                    node,
+                    message : "Use input instead of data for invokes",
+                    fix : (fixer) => fixer.replaceText(node.key, "input"),
+                })
+            },
+        };
+    },
 };
