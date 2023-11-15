@@ -25,6 +25,6 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | ❔ | [output-in-final-states](https://stately.ai/docs/migration#use-output-in-final-states-instead-of-data) | Use `{ type : "final", output : { ... } }` instead of `data` |
 | ❔ | [function-instead-of-property-wrapper](https://stately.ai/docs/migration#dont-use-property-mappers-in-input-or-output) | Use a function for `input`/`output` instead of individually mapping fields |
 | ❔ | [actors-property-replaces-services](https://stately.ai/docs/migration#use-actors-property-on-options-object-instead-of-services) | Use the `actors` property with `machine.provide()` instead of `services` |
-| ❔ | [subscribe-instead-of-ontransition](https://stately.ai/docs/migration#use-subscribe-for-changes-not-ontransition) | Use `actor.subscribe(...)` instead of `actor.onTransition(...)` |
+| ✅ | [subscribe-instead-of-ontransition](https://stately.ai/docs/migration#use-subscribe-for-changes-not-ontransition) | Use `actor.subscribe(...)` instead of `actor.onTransition(...)` |
 | ❔ | [actor-batch-removed](https://stately.ai/docs/migration#loop-over-events-instead-of-using-actorbatch) | `actor.batch(...)` was removed, use a loop instead |
 | ❔ | [snapshot-status-for-done](https://stately.ai/docs/migration#use-snapshotstatus--done-instead-of-snapshotdone) | Use `snapshot.status === "done"` instead of `snapshot.done` |
