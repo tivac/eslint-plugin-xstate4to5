@@ -4,7 +4,7 @@
   "description": "ESLint rules to transition xstate v4 machines to v5",
   "main": "index.js",
   "scripts": {
-    "test": "uvu ."
+    "test": "uvu tests --ignore ^_"
   },
   "keywords": [],
   "author": "",
