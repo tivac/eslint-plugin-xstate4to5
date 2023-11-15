@@ -1,7 +1,7 @@
 const _test = require("./_test.js");
 const rule = require("../transforms/createmachine-instead-of-machine.js");
 
-_test("invoke-input-instead-of-invoke-data", rule, {
+_test("createmachine-instead-of-machine", rule, {
     valid : [
         `
         import { createMachine } from 'xstate';

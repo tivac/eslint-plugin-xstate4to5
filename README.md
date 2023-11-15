@@ -7,7 +7,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | Status | Rule Name | Description |
 | :----: | --------- | ----------- |
 | ✅ | [createmachine-instead-of-machine](https://stately.ai/docs/migration#use-createmachine-not-machine) | Use `createMachine({ ... })` instead of `Machine({ ... })` |
-| ❔ | [createactor-instead-of-interpret](https://stately.ai/docs/migration#use-createactor-not-interpret) | Use `createActor(...)` instead of `interpret(...)` |
+| ✅ | [createactor-instead-of-interpret](https://stately.ai/docs/migration#use-createactor-not-interpret) | Use `createActor(...)` instead of `interpret(...)` |
 | ❔ | [provide-instead-of-withconfig](https://stately.ai/docs/migration#use-machineprovide-not-machinewithconfig) | Use `machine.provide(...)` instead of `machine.withConfig(...)` |
 | ❔ | [input-instead-of-withcontext](https://stately.ai/docs/migration#set-context-with-input-not-machinewithcontext) | Use `{ input : { ... } }` instead of `machine.withContext({ ... })` |
 | ❔ | [remove-predictableactionarguments](https://stately.ai/docs/migration#actions-ordered-by-default-predictableactionarguments-no-longer-needed) | Actions ordered, don't need `predictableActionArguments` |
