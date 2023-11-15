@@ -2,30 +2,28 @@ const _test = require("./_test.js");
 const rule = require("../transforms/createactor-instead-of-interpret.js");
 
 _test("createactor-instead-of-interpret", rule, {
-    valid : [
-        `
+    valid : [`
         import { createMachine, createActor } from 'xstate';
 
         const machine = createMachine(/* ... */);
 
         const actor = createActor(machine);
-        `,
-    ],
+    `],
 
     invalid : [{
         code : `
-        import { createMachine, interpret } from 'xstate';
+            import { createMachine, interpret } from 'xstate';
 
-        const machine = createMachine(/* ... */);
+            const machine = createMachine(/* ... */);
 
-        const actor = interpret(machine);
+            const actor = interpret(machine);
         `,
         output : `
-        import { createMachine, createActor } from 'xstate';
+            import { createMachine, createActor } from 'xstate';
 
-        const machine = createMachine(/* ... */);
+            const machine = createMachine(/* ... */);
 
-        const actor = createActor(machine);
+            const actor = createActor(machine);
         `,
         errors : [{ messageId : "wrong" }, { messageId : "wrong" }],
     }],

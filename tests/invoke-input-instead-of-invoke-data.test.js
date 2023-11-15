@@ -35,7 +35,7 @@ _test("invoke-input-instead-of-invoke-data", rule, {
                         value: 42,
                     },
                 },
-          });
+            });
         `,
         errors : [{ messageId : "wrong" }],
     }],
