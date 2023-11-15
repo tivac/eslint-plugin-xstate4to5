@@ -1,3 +1,5 @@
+const { inMachine } = require("../util/in-machine.js");
+
 // https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata
 module.exports = {
     meta : {
@@ -13,15 +15,15 @@ module.exports = {
         let inFinalNode = false;
         
         return {
-            [`ObjectExpression Property[key.name="type"][value.value="final"]`](node) {
+            [inMachine(`ObjectExpression Property[key.name="type"][value.value="final"]`)](node) {
                 inFinalNode = true;
             },
             
-            [`ObjectExpression:exit`](node) {
+            [inMachine(`ObjectExpression:exit`)](node) {
                 inFinalNode = false;
             },
 
-            [`Property[key.name="type"] ~ Property[key.name="data"]`](node) {
+            [inMachine(`Property[key.name="type"] ~ Property[key.name="data"]`)](node) {
                 if(!inFinalNode) {
                     return;
                 }

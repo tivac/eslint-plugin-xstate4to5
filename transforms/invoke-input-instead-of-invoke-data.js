@@ -1,3 +1,5 @@
+const { inMachine } = require("../util/in-machine.js");
+
 // https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata
 module.exports = {
     meta : {
@@ -11,7 +13,7 @@ module.exports = {
 
     create(context) {
         return {
-            [`Property[key.name="invoke"] Property[key.name="data"]`](node) {
+            [inMachine(`Property[key.name="invoke"] Property[key.name="data"]`)](node) {
                 context.report({
                     node,
                     messageId : "wrong",
