@@ -15,7 +15,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | ❔ | [raise-or-sendto](https://stately.ai/docs/migration#use-either-raise-or-sendto-not-send) | Use `raise()` or `sendTo()`, not `send()` |
 | ✅ | [send-objects](https://stately.ai/docs/migration#actorsend-no-longer-accepts-string-types) | Use `{ type : "..." }` to send an event |
 | ❔ | [can-objects](https://stately.ai/docs/migration#statecan-no-longer-accepts-string-types) | Use `.can({ type : "..." })` to check if a transition is valid |
-| ❔ | [guard-not-cond](https://stately.ai/docs/migration#guarded-transitions-use-guard-not-cond) | Guarded transitions use `guard` as the property instead of `cond` |
+| ✅ | [guard-not-cond](https://stately.ai/docs/migration#guarded-transitions-use-guard-not-cond) | Guarded transitions use `guard` as the property instead of `cond` |
 | ❔ | [event-data-via-params](https://stately.ai/docs/migration#use-params-to-pass-custom-event-data) | Use `{ type : "...", parmas : { ... } }` to pass custom data with events |
 | ❔ | [strict-mode-removed](https://stately.ai/docs/migration#use-wildcard--transitions-not-strict-mode) | Strict mode is removed, use a wildcard `*` transtion instead |
 | ❔ | [eventless-use-always](https://stately.ai/docs/migration#use-explicit-eventless-always-transitions) | Eventless transitions use `always`, not `""` |
