@@ -10,7 +10,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | ✅ | [createactor-instead-of-interpret](https://stately.ai/docs/migration#use-createactor-not-interpret) | Use `createActor(...)` instead of `interpret(...)` |
 | ❔ | [provide-instead-of-withconfig](https://stately.ai/docs/migration#use-machineprovide-not-machinewithconfig) | Use `machine.provide(...)` instead of `machine.withConfig(...)` |
 | ❔ | [input-instead-of-withcontext](https://stately.ai/docs/migration#set-context-with-input-not-machinewithcontext) | Use `{ input : { ... } }` instead of `machine.withContext({ ... })` |
-| ❔ | [remove-predictableactionarguments](https://stately.ai/docs/migration#actions-ordered-by-default-predictableactionarguments-no-longer-needed) | Actions ordered, don't need `predictableActionArguments` |
+| ✅ | [remove-predictableactionarguments](https://stately.ai/docs/migration#actions-ordered-by-default-predictableactionarguments-no-longer-needed) | Actions ordered, don't need `predictableActionArguments` |
 | ❔ | [implementation-arguments](https://stately.ai/docs/migration#implementation-functions-receive-a-single-argument) | `entry`/`exit`/etc receive `{ context, event }` |
 | ❔ | [raise-or-sendto](https://stately.ai/docs/migration#use-either-raise-or-sendto-not-send) | Use `raise()` or `sendTo()`, not `send()` |
 | ✅ | [send-objects](https://stately.ai/docs/migration#actorsend-no-longer-accepts-string-types) | Use `{ type : "..." }` to send an event |
