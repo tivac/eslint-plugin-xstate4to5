@@ -10,6 +10,8 @@ module.exports = {
     },
 
     create(context) {
+        let inFinalNode = false;
+        
         return {
             [`ObjectExpression Property[key.name="type"][value.value="final"]`](node) {
                 inFinalNode = true;
