@@ -18,7 +18,7 @@ This repository contains a collection of eslint rules with fixers to convert xst
 | ✅ | [guard-not-cond](https://stately.ai/docs/migration#guarded-transitions-use-guard-not-cond) | Guarded transitions use `guard` as the property instead of `cond` |
 | ❔ | [event-data-via-params](https://stately.ai/docs/migration#use-params-to-pass-custom-event-data) | Use `{ type : "...", parmas : { ... } }` to pass custom data with events |
 | ❔ | [strict-mode-removed](https://stately.ai/docs/migration#use-wildcard--transitions-not-strict-mode) | Strict mode is removed, use a wildcard `*` transtion instead |
-| ❔ | [eventless-use-always](https://stately.ai/docs/migration#use-explicit-eventless-always-transitions) | Eventless transitions use `always`, not `""` |
+| ✅ | [eventless-use-always](https://stately.ai/docs/migration#use-explicit-eventless-always-transitions) | Eventless transitions use `always`, not `""` |
 | ❔ | [reenter-instead-of-internal](https://stately.ai/docs/migration#use-reenter-true-not-internal-false) | Use `renter: true` instead of `internal: false` |
 | ❔ | [statein-instead-of-in](https://stately.ai/docs/migration#use-statein-to-validate-state-transitions-not-in) | Use `guard: stateIn({ ... })` instead of `in` |
 | ✅ | [invoke-input-instead-of-invoke-data](https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata) | Use `invoke : { ..., input : { ... } }` instead of `data` |
