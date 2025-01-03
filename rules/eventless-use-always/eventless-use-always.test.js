@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/eventless-use-always.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./eventless-use-always.js");
 
-_test("eventless-use-always", rule, {
+tester("eventless-use-always", rule, {
     valid : [`
         const machine = createMachine({
             states: {

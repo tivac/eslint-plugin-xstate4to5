@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/guard-not-cond.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./guard-not-cond.js");
 
-_test("guard-not-cond", rule, {
+tester("guard-not-cond", rule, {
     valid : [`
         const machine = createMachine({
             on: {

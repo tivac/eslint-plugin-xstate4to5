@@ -1,4 +1,4 @@
-const { inMachine } = require("../util/in-machine.js");
+const { inMachine } = require("../../util/in-machine.js");
 
 // https://stately.ai/docs/migration#actions-ordered-by-default-predictableactionarguments-no-longer-needed
 module.exports = {

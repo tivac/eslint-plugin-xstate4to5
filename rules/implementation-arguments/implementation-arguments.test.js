@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/implementation-arguments.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./implementation-arguments.js");
 
-_test("implementation-arguments", rule, {
+tester("implementation-arguments", rule, {
     valid : [`
         const machine = createMachine({
             states : {

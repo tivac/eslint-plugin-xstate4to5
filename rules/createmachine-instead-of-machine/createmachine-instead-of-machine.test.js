@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/createmachine-instead-of-machine.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./createmachine-instead-of-machine.js");
 
-_test("createmachine-instead-of-machine", rule, {
+tester("createmachine-instead-of-machine", rule, {
     valid : [
         `
         import { createMachine } from 'xstate';

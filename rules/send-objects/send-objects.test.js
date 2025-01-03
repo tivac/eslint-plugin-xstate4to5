@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/send-objects.js");
+const tester = require("../../tests/tester.js");
+const rule = require("./send-objects.js");
 
-_test("send-objects", rule, {
+tester("send-objects", rule, {
     valid : [`
         actor.send({ type : 'someEvent' });
     `],

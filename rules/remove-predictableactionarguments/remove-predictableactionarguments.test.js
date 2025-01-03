@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/remove-predictableactionarguments.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./remove-predictableactionarguments.js");
 
-_test("remove-predictableactionarguments.test", rule, {
+tester("remove-predictableactionarguments.test", rule, {
     valid : [`
         const machine = createMachine({});
     `],

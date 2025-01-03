@@ -1,7 +1,7 @@
-const _test = require("./_test.js");
-const rule = require("../transforms/output-in-final-states.js");
+const tester =  require("../../tests/tester.js");
+const rule = require("./output-in-final-states.js");
 
-_test("output-in-final-states.test", rule, {
+tester("output-in-final-states.test", rule, {
     valid : [`
         const machine = createMachine({
             states: {

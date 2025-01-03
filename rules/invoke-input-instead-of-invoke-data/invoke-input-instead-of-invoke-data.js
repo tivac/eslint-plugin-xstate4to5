@@ -1,4 +1,4 @@
-const { inMachine } = require("../util/in-machine.js");
+const { inMachine } = require("../../util/in-machine.js");
 
 // https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata
 module.exports = {
