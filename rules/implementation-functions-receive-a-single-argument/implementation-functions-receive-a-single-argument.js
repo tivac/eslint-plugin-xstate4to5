@@ -7,7 +7,7 @@ module.exports = {
         schema : [],
 
         messages : {
-            wrong : `Use ({ context, event }) instead of separate arguments`,
+            wrong : `Implementation functions receive a single argument`,
         },
     },
 

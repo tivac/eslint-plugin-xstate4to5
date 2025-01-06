@@ -1,15 +1,14 @@
 const tester =  require("../../tests/tester.js");
-const rule = require("./eventless-use-always.js");
+const rule = require("./output-in-final-states.js");
 
-tester("eventless-use-always", rule, {
+tester("use-output-in-final-states-instead-of-data", rule, {
     valid : [`
         const machine = createMachine({
             states: {
-                someState: {
-                    on: {
-                        always: {
-                            target: 'anotherState',
-                        },
+                finished: {
+                    type: 'final',
+                    output: {
+                        answer: 42,
                     },
                 },
             },
@@ -20,11 +19,10 @@ tester("eventless-use-always", rule, {
         code : `
             const machine = createMachine({
                 states: {
-                    someState: {
-                        on: {
-                            '': {
-                                target: 'anotherState',
-                            },
+                    finished: {
+                        type: 'final',
+                        data: {
+                            answer: 42,
                         },
                     },
                 },
@@ -33,11 +31,10 @@ tester("eventless-use-always", rule, {
         output : `
             const machine = createMachine({
                 states: {
-                    someState: {
-                        on: {
-                            always: {
-                                target: 'anotherState',
-                            },
+                    finished: {
+                        type: 'final',
+                        output: {
+                            answer: 42,
                         },
                     },
                 },

@@ -1,7 +1,7 @@
 const tester =  require("../../tests/tester.js");
 const rule = require("./invoke-input-instead-of-invoke-data.js");
 
-tester("invoke-input-instead-of-invoke-data", rule, {
+tester("use-invokeinput-instead-of-invokedata", rule, {
     valid : [`
         const machine = createMachine({
             // ...

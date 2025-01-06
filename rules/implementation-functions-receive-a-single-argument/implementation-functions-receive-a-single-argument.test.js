@@ -1,7 +1,7 @@
 const tester =  require("../../tests/tester.js");
-const rule = require("./implementation-arguments.js");
+const rule = require("./implementation-functions-receive-a-single-argument.js");
 
-tester("implementation-arguments", rule, {
+tester("implementation-functions-receive-a-single-argument", rule, {
     valid : [`
         const machine = createMachine({
             states : {

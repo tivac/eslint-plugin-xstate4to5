@@ -1,7 +1,7 @@
 const tester =  require("../../tests/tester.js");
-const rule = require("./guard-not-cond.js");
+const rule = require("./guarded-transitions-use-guard-not-cond.js");
 
-tester("guard-not-cond", rule, {
+tester("guarded-transitions-use-guard-not-cond", rule, {
     valid : [`
         const machine = createMachine({
             on: {

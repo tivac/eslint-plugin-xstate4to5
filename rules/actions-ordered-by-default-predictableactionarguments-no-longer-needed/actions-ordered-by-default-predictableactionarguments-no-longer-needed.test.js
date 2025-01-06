@@ -1,7 +1,7 @@
 const tester =  require("../../tests/tester.js");
-const rule = require("./remove-predictableactionarguments.js");
+const rule = require("./actions-ordered-by-default-predictableactionarguments-no-longer-needed.js");
 
-tester("remove-predictableactionarguments.test", rule, {
+tester("actions-ordered-by-default-predictableactionarguments-no-longer-needed", rule, {
     valid : [`
         const machine = createMachine({});
     `],

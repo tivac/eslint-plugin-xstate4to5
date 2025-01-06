@@ -1,7 +1,7 @@
 const tester = require("../../tests/tester.js");
-const rule = require("./send-objects.js");
+const rule = require("./actorsend-no-longer-accepts-string-types.js");
 
-tester("send-objects", rule, {
+tester("actorsend-no-longer-accepts-string-types", rule, {
     valid : [`
         actor.send({ type : 'someEvent' });
     `],

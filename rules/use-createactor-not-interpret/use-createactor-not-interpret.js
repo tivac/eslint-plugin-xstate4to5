@@ -5,7 +5,7 @@ module.exports = {
         schema : [],
 
         messages : {
-            wrong : "Use createMachine instead of Machine"
+            wrong : "Use `createActor()`, not `interpret()`"
         },
     },
 
@@ -21,7 +21,7 @@ module.exports = {
                 xstateImport = false;
             },
 
-            [`ImportSpecifier[imported.name="Machine"]`](node) {
+            [`ImportSpecifier[imported.name="interpret"]`](node) {
                 if(!xstateImport) {
                     return;
                 }
@@ -29,16 +29,16 @@ module.exports = {
                 context.report({
                     node,
                     messageId : "wrong",
-                    fix : (fixer) => fixer.replaceText(node.imported, "createMachine"),
+                    fix : (fixer) => fixer.replaceText(node.imported, "createActor"),
                 });
             },
 
             // TODO: can this be safer?
-            [`CallExpression[callee.name="Machine"]`](node) {
+            [`CallExpression[callee.name="interpret"]`](node) {
                 context.report({
                     node,
                     messageId : "wrong",
-                    fix : (fixer) => fixer.replaceText(node.callee, "createMachine"),
+                    fix : (fixer) => fixer.replaceText(node.callee, "createActor"),
                 });
             },
         };

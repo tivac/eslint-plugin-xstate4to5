@@ -7,7 +7,7 @@ module.exports = {
         schema : [],
 
         messages : {
-            wrong : `predictableActionArguments is no longer necessary`,
+            wrong : "Actions ordered by default, `predictableActionArguments` no longer needed",
         },
     },
 

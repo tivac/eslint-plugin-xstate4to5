@@ -1,7 +1,7 @@
 const tester =  require("../../tests/tester.js");
-const rule = require("./subscribe-instead-of-ontransition.js");
+const rule = require("./use-subscribe-for-changes-not-ontransition.js");
 
-tester("subscribe-instead-of-ontransition", rule, {
+tester("use-subscribe-for-changes-not-ontransition", rule, {
     valid : [`
         const actor = interpret(machine);
         actor.subscribe((state) => {
