@@ -1,5 +1,6 @@
 import { RuleTester } from "eslint";
 import { suite } from "uvu";
+import globals from "globals";
 
 export default (name, rule, tests) => {
     const test = suite(name);
@@ -8,14 +9,10 @@ export default (name, rule, tests) => {
     RuleTester.itOnly = test.only;
 
     const ruleTester = new RuleTester({
-        parserOptions : {
-            ecmaVersion : 2019,
-            sourceType  : "module",
-        },
-
-        env : {
-            es6     : true,
-            browser : true,
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
         },
     });
 

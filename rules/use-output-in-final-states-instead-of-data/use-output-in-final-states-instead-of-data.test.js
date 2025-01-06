@@ -1,5 +1,5 @@
 import tester from "../../tests/tester.js";
-import rule from "./output-in-final-states.js";
+import rule from "./use-output-in-final-states-instead-of-data.js";
 
 tester("use-output-in-final-states-instead-of-data", rule, {
     valid : [`

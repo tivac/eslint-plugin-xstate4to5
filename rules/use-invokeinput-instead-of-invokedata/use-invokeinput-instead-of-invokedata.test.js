@@ -1,5 +1,5 @@
 import tester from "../../tests/tester.js";
-import rule from "./invoke-input-instead-of-invoke-data.js";
+import rule from "./use-invokeinput-instead-of-invokedata.js";
 
 tester("use-invokeinput-instead-of-invokedata", rule, {
     valid : [`
