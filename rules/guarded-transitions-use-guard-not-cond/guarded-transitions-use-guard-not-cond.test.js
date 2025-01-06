@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./guarded-transitions-use-guard-not-cond.js");
+import tester from "../../tests/tester.js";
+import rule from "./guarded-transitions-use-guard-not-cond.js";
 
 tester("guarded-transitions-use-guard-not-cond", rule, {
     valid : [`

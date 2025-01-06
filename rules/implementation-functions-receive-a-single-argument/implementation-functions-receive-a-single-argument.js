@@ -1,9 +1,10 @@
-const { inMachine } = require("../../util/in-machine.js");
+import { inMachine } from "../../util/in-machine.js";
 
 // https://stately.ai/docs/migration#implementation-functions-receive-a-single-argument
-module.exports = {
+export default {
     meta : {
-        fixable : true,
+		type : "problem",
+        fixable : "code",
         schema : [],
 
         messages : {

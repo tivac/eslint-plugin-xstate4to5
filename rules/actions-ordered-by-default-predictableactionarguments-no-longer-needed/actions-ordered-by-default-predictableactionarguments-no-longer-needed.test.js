@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./actions-ordered-by-default-predictableactionarguments-no-longer-needed.js");
+import tester from "../../tests/tester.js";
+import rule from "./actions-ordered-by-default-predictableactionarguments-no-longer-needed.js";
 
 tester("actions-ordered-by-default-predictableactionarguments-no-longer-needed", rule, {
     valid : [`

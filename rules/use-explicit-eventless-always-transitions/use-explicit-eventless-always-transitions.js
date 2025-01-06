@@ -1,9 +1,10 @@
-const { inMachine } = require("../../util/in-machine.js");
+import { inMachine } from "../../util/in-machine.js";
 
 // https://stately.ai/docs/migration#use-explicit-eventless-always-transitions
-module.exports = {
+export default {
     meta : {
-        fixable : true,
+		type : "problem",
+        fixable : "code",
         schema : [],
 
         messages : {

@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./output-in-final-states.js");
+import tester from "../../tests/tester.js";
+import rule from "./output-in-final-states.js";
 
 tester("use-output-in-final-states-instead-of-data", rule, {
     valid : [`

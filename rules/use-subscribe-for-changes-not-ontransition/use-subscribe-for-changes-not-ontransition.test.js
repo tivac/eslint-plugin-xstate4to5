@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./use-subscribe-for-changes-not-ontransition.js");
+import tester from "../../tests/tester.js";
+import rule from "./use-subscribe-for-changes-not-ontransition.js";
 
 tester("use-subscribe-for-changes-not-ontransition", rule, {
     valid : [`

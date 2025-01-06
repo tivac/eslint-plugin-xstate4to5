@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./use-createmachine-not-machine.js");
+import tester from "../../tests/tester.js";
+import rule from "./use-createmachine-not-machine.js";
 
 tester("use-createmachine-not-machine", rule, {
     valid : [ 

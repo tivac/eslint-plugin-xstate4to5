@@ -1,7 +1,8 @@
 // https://stately.ai/docs/migration#use-invokeinput-instead-of-invokedata
-module.exports = {
+export default {
     meta : {
-        fixable : true,
+		type : "problem",
+        fixable : "code",
         schema : [],
 
         messages : {

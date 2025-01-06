@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./implementation-functions-receive-a-single-argument.js");
+import tester from "../../tests/tester.js";
+import rule from "./implementation-functions-receive-a-single-argument.js";
 
 tester("implementation-functions-receive-a-single-argument", rule, {
     valid : [`

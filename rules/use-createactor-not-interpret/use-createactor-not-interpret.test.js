@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./use-createactor-not-interpret.js");
+import tester from "../../tests/tester.js";
+import rule from "./use-createactor-not-interpret.js";
 
 tester("use-createactor-not-interpret", rule, {
     valid : [`

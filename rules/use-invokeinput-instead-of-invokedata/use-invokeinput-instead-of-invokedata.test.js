@@ -1,5 +1,5 @@
-const tester =  require("../../tests/tester.js");
-const rule = require("./invoke-input-instead-of-invoke-data.js");
+import tester from "../../tests/tester.js";
+import rule from "./invoke-input-instead-of-invoke-data.js";
 
 tester("use-invokeinput-instead-of-invokedata", rule, {
     valid : [`

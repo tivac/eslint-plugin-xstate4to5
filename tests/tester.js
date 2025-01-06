@@ -1,7 +1,7 @@
-const { RuleTester } = require("eslint");
-const { suite } = require("uvu");
+import { RuleTester } from "eslint";
+import { suite } from "uvu";
 
-module.exports = (name, rule, tests) => {
+export default (name, rule, tests) => {
     const test = suite(name);
 
     RuleTester.it = test;

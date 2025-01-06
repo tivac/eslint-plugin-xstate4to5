@@ -1,5 +1,5 @@
-const tester = require("../../tests/tester.js");
-const rule = require("./actorsend-no-longer-accepts-string-types.js");
+import tester from "../../tests/tester.js";
+import rule from "./actorsend-no-longer-accepts-string-types.js";
 
 tester("actorsend-no-longer-accepts-string-types", rule, {
     valid : [`

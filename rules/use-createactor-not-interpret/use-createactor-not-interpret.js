@@ -1,7 +1,8 @@
 // https://stately.ai/docs/migration#use-createmachine-not-machine
-module.exports = {
+export default {
     meta : {
-        fixable : true,
+		type : "problem",
+        fixable : "code",
         schema : [],
 
         messages : {
@@ -13,11 +14,11 @@ module.exports = {
         let xstateImport = false;
 
         return {
-            [`ImportDeclaration[source.value="xstate"]`](node) {
+            [`ImportDeclaration[source.value="xstate"]`]() {
                 xstateImport = true;
             },
             
-            [`ImportDeclaration[source.value="xstate"]:exit`](node) {
+            [`ImportDeclaration[source.value="xstate"]:exit`]() {
                 xstateImport = false;
             },
 
