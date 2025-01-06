@@ -5,19 +5,24 @@ import glob from "fast-glob";
 import json from "./package.json" with { type: 'json' };
 
 const rules = {};
-const files = await glob([ "./rules/**/*.js", "!**/*.test.js" ]);
+const files = await glob([ "./rules/**/*.js", "!**/*.test.js" ], { cwd : import.meta.dirname });
 
 const configs = {
-    all : {},
+    all : {
+        name : `${json.name}:all`,
+        rules : {},
+    },
 };
 
 for await (const file of files) {
     const { name } = path.parse(file);
-    const module = await import(`./${file}`);
+    const { default : rule } = await import(`./${file}`);
 
-    rules[name] = module;
+    const rulename = `${json.name}/${name}`;
 
-    configs.all[name] = "error";
+    rules[name] = rule;
+
+    configs.all.rules[rulename] = "error";
 }
 
 export default {
