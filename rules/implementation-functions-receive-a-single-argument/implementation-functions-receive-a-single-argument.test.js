@@ -26,6 +26,16 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 },
             },
         });
+    `, `
+        const machine = createMachine({
+            states : {
+                one : {
+                    entry : [
+                        ({ context : { foo } }) => {},
+                    ],
+                },
+            },
+        });
     `],
 
     invalid : [{
