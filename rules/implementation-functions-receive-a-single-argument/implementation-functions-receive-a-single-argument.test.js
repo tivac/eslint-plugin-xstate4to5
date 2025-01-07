@@ -19,8 +19,8 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                     one : {
                         entry : (context, event) => {},
                         exit : (context) => {},
-                    }
-                }
+                    },
+                },
             });
         `,
         output : `
@@ -29,8 +29,42 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                     one : {
                         entry : ({ context : context, event : event }) => {},
                         exit : ({ context : context }) => {},
-                    }
-                }
+                    },
+                },
+            });
+        `,
+        errors : [{ messageId : "wrong" }, { messageId : "wrong" }, { messageId : "wrong" }, { messageId : "wrong" }],
+    }, {
+        code : `
+            const machine = createMachine({
+                states : {
+                    one : {
+                        entry : ({ one, two }) => {},
+
+                        on : {
+                            FOO : {
+                                target : () => {},
+                                actions : ({ one, two }) => {},
+                            },
+                        },
+                    },
+                },
+            });
+        `,
+        output : `
+            const machine = createMachine({
+                states : {
+                    one : {
+                        entry : ({ context : { one, two } }) => {},
+
+                        on : {
+                            FOO : {
+                                target : () => {},
+                                actions : ({ context : { one, two } }) => {},
+                            },
+                        },
+                    },
+                },
             });
         `,
         errors : [{ messageId : "wrong" }, { messageId : "wrong" }],
@@ -40,8 +74,15 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 states : {
                     one : {
                         entry : ({ one, two }, { three, four }) => {},
-                    }
-                }
+
+                        on : {
+                            FOO : {
+                                target : () => {},
+                                actions : ({ one, two }, { three, four }) => {},
+                            },
+                        },
+                    },
+                },
             });
         `,
         output : `
@@ -49,10 +90,17 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 states : {
                     one : {
                         entry : ({ context : { one, two }, event : { three, four } }) => {},
-                    }
-                }
+
+                        on : {
+                            FOO : {
+                                target : () => {},
+                                actions : ({ context : { one, two }, event : { three, four } }) => {},
+                            },
+                        },
+                    },
+                },
             });
         `,
-        errors : [{ messageId : "wrong" }],
-    }],
+        errors : [{ messageId : "wrong" }, { messageId : "wrong" }],
+    } ],
 });
