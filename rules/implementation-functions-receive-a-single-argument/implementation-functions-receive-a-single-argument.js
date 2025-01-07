@@ -30,7 +30,7 @@ export default {
             
             // entry : ({ foo }) => {}
             // actions : ({ foo }) => {}
-            [inMachine(`Property[key.name=/entry|exit|actions/] :function[params.length=1]`)](node) {
+            [inMachine(`Property[key.name=/entry|exit|actions/] > :function[params.length=1]`)](node) {
                 const [ first ] = node.params;
 
                 // Ignore entry : ({ ... }) => {}, because it might be fine
@@ -41,10 +41,6 @@ export default {
                 return context.report({
                     node,
                     messageId : "wrong",
-                    fix : (fixer) => fixer.replaceText(
-                        node.params[0],
-                        `{ context : ${sourceCode.getText(node.params[0])} }`
-                    ),
                 });
             },
       
@@ -64,16 +60,10 @@ export default {
 
             // entry : ({ foo }. { bar }) => {}
             // actions : ({ foo }, { bar }) => {}
-            [inMachine(`Property[key.name=/entry||exit|actions/] :function[params.length=2]`)](node) {
-                const [ param1, param2 ] = node.params;
-        
+            [inMachine(`Property[key.name=/entry||exit|actions/] > :function[params.length=2]`)](node) {
                 return context.report({
                     node,
                     messageId : "wrong",
-                    fix : (fixer) => fixer.replaceTextRange(
-                        [node.params[0].range[0], node.params[1].range[1] ],
-                        `{ context : ${sourceCode.getText(param1)}, event : ${sourceCode.getText(param2)} }`
-                    ),
                 });
             }
         };

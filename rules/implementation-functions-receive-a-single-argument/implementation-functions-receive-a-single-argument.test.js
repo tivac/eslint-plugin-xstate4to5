@@ -10,6 +10,14 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 }
             }
         });
+    `, `
+        const machine = createMachine({
+            invoke : [
+                foo(bar, ($bar, dispatch) =>
+                    dispatch({ type : $bar ? "BAR" : "NO_BAR" })
+                ),
+            ],
+        });
     `],
 
     invalid : [{
