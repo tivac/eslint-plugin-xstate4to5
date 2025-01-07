@@ -7,6 +7,15 @@ tester("implementation-functions-receive-a-single-argument", rule, {
             const machine = createMachine({
                 states : {
                     one : {
+                        entry : () => {},
+                    }
+                }
+            });
+        `,
+        `
+            const machine = createMachine({
+                states : {
+                    one : {
                         entry : ({ context, event }) => {},
                         exit : ({ context }) => {},
                     }
@@ -88,7 +97,7 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 const machine = createMachine({
                     states : {
                         one : {
-                            entry : ({ context, event }) => {},
+                            entry : ({ context, event : event }) => {},
                             exit : ({ context }) => {},
 
                             on : {
@@ -101,7 +110,7 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                                     target : "bar",
                                     actions : [
                                         ({ context }) => {},
-                                        ({ context, event }) => {},
+                                        ({ context, event : event }) => {},
                                     ],
                                 },
                             },
@@ -140,14 +149,14 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 const machine = createMachine({
                     states : {
                         one : {
-                            entry : ({ context : { one, two } }) => {},
+                            entry : ({ one, two }) => {},
                             exit : ({ context }) => {},
 
                             on : {
                                 FOO : {
                                     target : "foo",
-                                    guard : ({ context : { one, two } }) => {},
-                                    actions : ({ context : { one, two } }) => {},
+                                    guard : ({ one, two }) => {},
+                                    actions : ({ one, two }) => {},
                                 },
                             },
                         },
@@ -167,6 +176,7 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                     states : {
                         one : {
                             entry : ({ one, two }, { three, four }) => {},
+                            exit : (context, { three, four }) => {},
 
                             on : {
                                 FOO : {
@@ -182,12 +192,13 @@ tester("implementation-functions-receive-a-single-argument", rule, {
                 const machine = createMachine({
                     states : {
                         one : {
-                            entry : ({ context : { one, two }, event : { three, four } }) => {},
+                            entry : ({ one, two }, { three, four }) => {},
+                            exit : ({ context, event : { three, four } }) => {},
 
                             on : {
                                 FOO : {
                                     target : () => {},
-                                    actions : ({ context : { one, two }, event : { three, four } }) => {},
+                                    actions : ({ one, two }, { three, four }) => {},
                                 },
                             },
                         },
@@ -196,7 +207,9 @@ tester("implementation-functions-receive-a-single-argument", rule, {
             `,
             errors : [
                 { messageId : "wrong", line : 5 },
-                { messageId : "wrong", line : 10 }
+                { messageId : "wrong", line : 6 },
+                { messageId : "wrong", line : 6 },
+                { messageId : "wrong", line : 11 },
             ],
         },
     ],
